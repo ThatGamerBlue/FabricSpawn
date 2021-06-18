@@ -55,8 +55,13 @@ public class SpawnConfig
 
 	public void saveConfig() throws IOException
 	{
-		Path configPath = FabricLoader.getInstance().getConfigDir().resolve("fabricspawn").resolve("config.json");
-		Files.createDirectories(configPath.resolve(".."));
+		Path configFolder = FabricLoader.getInstance().getConfigDir().resolve("fabricspawn");
+		if (Files.exists(configFolder) && !Files.isDirectory(configFolder))
+		{
+			Files.delete(configFolder);
+		}
+		Files.createDirectories(configFolder);
+		Path configPath = configFolder.resolve("config.json");
 		Files.writeString(configPath, GSON.toJson(config == null ? new ConfigObject() : config));
 	}
 
