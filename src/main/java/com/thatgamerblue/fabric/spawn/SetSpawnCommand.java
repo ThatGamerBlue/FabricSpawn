@@ -49,7 +49,7 @@ public class SetSpawnCommand
 		}
 
 		scs.getWorld().setSpawnPos(target, facing.y);
-		scs.getMinecraftServer().getGameRules().get(GameRules.SPAWN_RADIUS).set(0, scs.getMinecraftServer());
+		scs.getServer().getGameRules().get(GameRules.SPAWN_RADIUS).set(0, scs.getServer());
 
 		scs.sendFeedback(Text.of("Spawn set!"), false);
 

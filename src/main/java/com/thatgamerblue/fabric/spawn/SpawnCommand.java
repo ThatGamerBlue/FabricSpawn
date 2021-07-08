@@ -27,7 +27,7 @@ public class SpawnCommand
 
 	public static int execute(ServerCommandSource scs)
 	{
-		MinecraftServer server = scs.getMinecraftServer();
+		MinecraftServer server = scs.getServer();
 
 		if (!(scs.getEntity() instanceof ServerPlayerEntity))
 		{
